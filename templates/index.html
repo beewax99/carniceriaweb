@@ -7,62 +7,45 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; background-color: #000; color: #fff; font-family: 'Inter', sans-serif; }
-        
+        body, html { margin: 0; padding: 0; height: 100%; background-color: #000; color: #fff; font-family: 'Inter', sans-serif; }
         .hero-section {
             position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            text-align: center;
         }
-
-        /* IMAGEN DE CARNICERÍA REAL: MEDIAS RESES Y GANCHOS */
+        /* IMAGEN DE CARNICERÍA REAL GARANTIZADA */
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%), 
-                        url('https://images.unsplash.com/photo-1593031252721-6548174f4a3e?q=80&w=2000');
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%), 
+                        url('https://images.pexels.com/photos/7163989/pexels-photo-7163989.jpeg');
             background-size: cover;
             background-position: center;
             z-index: 1;
         }
-
-        /* Filtro de "frío" estático y sutil */
-        .cold-overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.4) 100%);
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .content { position: relative; z-index: 10; text-align: center; width: 100%; max-width: 900px; padding: 0 20px; }
-
+        .content { position: relative; z-index: 10; width: 100%; max-width: 1000px; padding: 0 20px; }
         .btn-whatsapp {
             background-color: #25D366;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 10px 40px rgba(37,211,102,0.3);
+            box-shadow: 0 10px 40px rgba(37,211,102,0.4);
         }
-        .btn-whatsapp:hover { transform: scale(1.08); box-shadow: 0 15px 50px rgba(37,211,102,0.5); }
+        .btn-whatsapp:hover { transform: scale(1.08); }
     </style>
 </head>
 <body class="antialiased">
 
     <div class="hero-section">
         <div class="hero-bg"></div>
-        <div class="cold-overlay"></div>
 
         <div class="content">
             <div class="mb-14">
-                <h1 class="text-7xl md:text-[130px] font-black tracking-tighter uppercase italic border-b-[14px] border-white inline-block mb-4 leading-none">
+                <h1 class="text-7xl md:text-[140px] font-black tracking-tighter uppercase italic border-b-[16px] border-white inline-block mb-4 leading-none">
                     ARIAS
                 </h1>
-                <p class="text-xl md:text-3xl font-bold tracking-[0.7em] uppercase opacity-90">
+                <p class="text-xl md:text-3xl font-bold tracking-[0.8em] uppercase opacity-90">
                     CARNICERÍA
                 </p>
             </div>
@@ -78,8 +61,8 @@
                 </div>
             </div>
 
-            <a href="https://wa.me/{{ phone_number }}?text=Hola!%20Vengo%20de%20la%20web%20de%20Carnicería%20Arias.%20Quiero%20hacer%20un%20pedido." 
-               class="btn-whatsapp px-16 py-7 rounded-2xl text-black font-black uppercase text-2xl">
+            <a href="https://wa.me/{{ phone_number }}?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Carnicería%20Arias." 
+               class="btn-whatsapp inline-flex items-center gap-4 px-16 py-7 rounded-2xl text-black font-extrabold uppercase text-2xl">
                 <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.015 0-4.001-.512-5.756-1.486l-6.128 1.61zm6.426-4.503l.363.215c1.554.921 3.35 1.408 5.186 1.408 5.432 0 9.854-4.422 9.854-9.855 0-2.632-1.024-5.105-2.885-6.965s-4.333-2.885-6.966-2.885c-5.433 0-9.855 4.422-9.855 9.855 0 1.954.582 3.856 1.681 5.467l.236.345-1.008 3.682 3.774-.99z"/></svg>
                 PEDIR POR WHATSAPP
             </a>
@@ -88,7 +71,7 @@
 
     <footer class="absolute bottom-8 w-full text-center z-20">
         <p class="text-xs uppercase tracking-[0.5em] opacity-30 font-bold">
-            &copy; 2026 Carnicería Arias | Tradición y Confianza
+            &copy; 2026 Carnicería Arias
         </p>
     </footer>
 
