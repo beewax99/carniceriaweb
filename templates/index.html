@@ -9,28 +9,31 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
         .hero-bg {
-            /* Degradado más oscuro para resaltar la carne cruda y el texto */
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%), 
-                        url('https://images.unsplash.com/photo-1610419131604-0c2f8b548d7d?q=80&w=2000');
+            /* Usamos una imagen de mostrador de carnicería real con variedad de carnes */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1602491673980-73aa38de027a?q=80&w=2000');
             background-size: cover;
             background-position: center;
         }
         .btn-whatsapp {
             background-color: #25D366;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.3s ease;
         }
         .btn-whatsapp:hover { 
             transform: scale(1.05);
-            box-shadow: 0 10px 40px rgba(37,211,102,0.6);
+            box-shadow: 0 0 40px rgba(37,211,102,0.5);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-green-500/30">
+<body class="antialiased">
 
     <section class="relative h-screen flex flex-col items-center justify-center hero-bg px-6">
         
-        <div class="text-center mb-16 relative">
-            <h1 class="text-6xl md:text-9xl font-black tracking-tighter uppercase italic border-b-8 border-white inline-block mb-4">
+        <div class="text-center mb-12">
+            <h1 class="text-6xl md:text-9xl font-black tracking-tighter uppercase italic border-b-8 border-white inline-block mb-4 leading-none">
                 CARNICERIA ARIAS
             </h1>
             <p class="text-xl md:text-2xl font-bold tracking-[0.4em] uppercase opacity-70">
@@ -38,27 +41,26 @@
             </p>
         </div>
 
-        <div class="max-w-4xl text-center mb-12">
-            <p class="text-lg md:text-3xl font-medium leading-snug mb-8">
+        <div class="max-w-3xl text-center mb-10 text-shadow">
+            <p class="text-lg md:text-3xl font-medium leading-tight mb-6">
                 Hacé tu pedido ahora y nuestro <span class="text-green-500 font-bold italic">Encargado</span> te atiende en el acto. 
-                Carne fresca y seleccionada, directo a tu casa.
             </p>
-            <p class="text-sm md:text-xl text-stone-300 font-light tracking-wide max-w-2xl mx-auto">
-                Vacuna, Pollo, Cerdo y la mejor selección para tu mesa diaria. <br>
-                Calidad garantizada.
+            <p class="text-md md:text-xl text-stone-300 font-semibold tracking-wide uppercase">
+                VACUNA • POLLO • CERDO
             </p>
+            <p class="text-stone-400 mt-2">Calidad garantizada directo a tu casa.</p>
         </div>
 
-        <a href="https://wa.me/TU_NUMERO?text=Hola!%20Vengo%20de%20 la%20web%20de%20Carnicería%20Arias.%20Quiero%20hacer%20un%20pedido." 
-           class="btn-whatsapp flex items-center gap-4 px-12 py-7 rounded-2xl text-black font-black uppercase text-xl shadow-[0_0_30px_rgba(37,211,102,0.3)]">
-            <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.015 0-4.001-.512-5.756-1.486l-6.128 1.61zm6.426-4.503l.363.215c1.554.921 3.35 1.408 5.186 1.408 5.432 0 9.854-4.422 9.854-9.855 0-2.632-1.024-5.105-2.885-6.965s-4.333-2.885-6.966-2.885c-5.433 0-9.855 4.422-9.855 9.855 0 1.954.582 3.856 1.681 5.467l.236.345-1.008 3.682 3.774-.99z"/></svg>
+        <a href="https://wa.me/TU_NUMERO?text=Hola!%20Vengo%20de%20la%20web%20de%20Carnicería%20Arias.%20Quiero%20hacer%20un%20pedido." 
+           class="btn-whatsapp flex items-center gap-4 px-12 py-6 rounded-2xl text-black font-black uppercase text-xl shadow-2xl">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.015 0-4.001-.512-5.756-1.486l-6.128 1.61zm6.426-4.503l.363.215c1.554.921 3.35 1.408 5.186 1.408 5.432 0 9.854-4.422 9.854-9.855 0-2.632-1.024-5.105-2.885-6.965s-4.333-2.885-6.966-2.885c-5.433 0-9.855 4.422-9.855 9.855 0 1.954.582 3.856 1.681 5.467l.236.345-1.008 3.682 3.774-.99z"/></svg>
             PEDIR POR WHATSAPP
         </a>
 
     </section>
 
     <footer class="absolute bottom-8 w-full text-center">
-        <p class="text-[10px] uppercase tracking-[0.6em] opacity-30 italic">
+        <p class="text-[10px] uppercase tracking-[0.5em] opacity-30 italic">
             &copy; 2026 Carnicería Arias | Tradición y Calidad
         </p>
     </footer>
