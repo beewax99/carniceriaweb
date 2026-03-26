@@ -1,83 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Butcher Shop</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <title>El Corte de Oro | Carnicería Boutique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-bg: #0F0F0F;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .gold-text { color: var(--gold); }
+        .gold-border { border-color: var(--gold); }
+        .btn-gold { 
+            background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%);
+            color: black;
+        }
+        .overlay-dark { background: linear-gradient(to bottom, rgba(15,15,15,0.4) 0%, rgba(15,15,15,1) 100%); }
+    </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Butcher Shop Logo">
+<body class="text-stone-300 overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-lg border-b border-white/5 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl font-serif font-bold tracking-tighter gold-text uppercase italic">El Corte de Oro</span>
+            </div>
+            <div class="hidden md:flex space-x-10 text-[10px] font-bold uppercase tracking-[0.2em]">
+                <a href="#inicio" class="hover:text-amber-500 transition-colors">Inicio</a>
+                <a href="#productos" class="hover:text-amber-500 transition-colors">Cortes Premium</a>
+                <a href="#nosotros" class="hover:text-amber-500 transition-colors">La Granja</a>
+                <a href="https://wa.me/TU_NUMERO" class="gold-text border border-amber-600/50 px-4 py-2 rounded-sm hover:bg-amber-600/10 transition">Pedidos</a>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    </nav>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <h1>Welcome to Our Butcher Shop</h1>
-        <p>Your one-stop shop for top-quality meats.</p>
-        <a href="#contact" class="whatsapp-button">Contact Us on WhatsApp</a>
-    </section>
-
-    <!-- Products Showcase -->
-    <section id="products">
-        <h2>Our Products</h2>
-        <div class="product-list">
-            <div class="product-item">
-                <h3>Beef</h3>
-                <p>High-quality beef cuts.</p>
-            </div>
-            <div class="product-item">
-                <h3>Pork</h3>
-                <p>Fresh pork selections.</p>
-            </div>
-            <div class="product-item">
-                <h3>Chicken</h3>
-                <p>Free-range chicken.</p>
+    <section id="inicio" class="relative h-screen flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2000" class="w-full h-full object-cover opacity-60" alt="Boutique Meat">
+            <div class="absolute inset-0 overlay-dark"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-5xl">
+            <span class="text-amber-500 text-xs font-bold uppercase tracking-[0.5em] mb-4 block">Est. 2026</span>
+            <h1 class="text-6xl md:text-9xl mb-8 italic leading-tight">Del campo a tu <br> <span class="gold-text">parrilla.</span></h1>
+            <p class="text-lg md:text-2xl font-light mb-12 text-stone-400 max-w-2xl mx-auto leading-relaxed">
+                Seleccionamos cada pieza con rigor artesanal. Calidad de exportación para el asado de todos los domingos.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#productos" class="btn-gold px-12 py-5 rounded-full font-bold uppercase text-xs tracking-widest hover:scale-105 transition-transform shadow-2xl">
+                    Ver Carta de Cortes
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <p>Customized cuts, delivery, and catering services.</p>
+    <section id="productos" class="py-32 container mx-auto px-6">
+        <div class="text-center mb-24">
+            <h2 class="text-4xl md:text-6xl italic mb-6">Nuestras Joyas</h2>
+            <p class="text-stone-500 uppercase tracking-widest text-xs">Cortes seleccionados de pastura natural</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="group relative bg-zinc-900/50 border border-white/5 p-4 rounded-3xl hover:border-amber-600/30 transition-all duration-500">
+                <div class="aspect-square overflow-hidden rounded-2xl mb-8">
+                    <img src="https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80 group-hover:opacity-100" alt="Ojo de Bife">
+                </div>
+                <h3 class="text-2xl font-serif mb-2 gold-text">Ojo de Bife</h3>
+                <p class="text-stone-500 text-sm mb-6 leading-relaxed italic">El equilibrio perfecto entre ternura y marmoleo intenso. El rey de la mesa.</p>
+                <div class="flex justify-between items-center border-t border-white/5 pt-6">
+                    <span class="font-serif text-xl">$ 12.500 <small class="text-[10px] text-stone-600">/KG</small></span>
+                    <a href="https://wa.me/TU_NUMERO?text=Hola!%20Quiero%20Ojo%20de%20Bife" class="text-[10px] font-bold uppercase tracking-widest gold-text border-b border-amber-600 pb-1">Pedir Ahora</a>
+                </div>
+            </div>
+
+            <div class="group relative bg-zinc-900/50 border border-white/5 p-4 rounded-3xl hover:border-amber-600/30 transition-all duration-500">
+                <div class="aspect-square overflow-hidden rounded-2xl mb-8">
+                    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80 group-hover:opacity-100" alt="Costillar">
+                </div>
+                <h3 class="text-2xl font-serif mb-2 gold-text">Costillar Premium</h3>
+                <p class="text-stone-500 text-sm mb-6 leading-relaxed italic">Corte ancho, carne firme y el sabor inconfundible del asado tradicional argentino.</p>
+                <div class="flex justify-between items-center border-t border-white/5 pt-6">
+                    <span class="font-serif text-xl">$ 9.800 <small class="text-[10px] text-stone-600">/KG</small></span>
+                    <a href="https://wa.me/TU_NUMERO?text=Hola!%20Quiero%20Costillar" class="text-[10px] font-bold uppercase tracking-widest gold-text border-b border-amber-600 pb-1">Pedir Ahora</a>
+                </div>
+            </div>
+
+            <div class="group relative bg-zinc-900/50 border border-white/5 p-4 rounded-3xl hover:border-amber-600/30 transition-all duration-500">
+                <div class="aspect-square overflow-hidden rounded-2xl mb-8">
+                    <img src="https://images.unsplash.com/photo-1529692236671-f1f6e9481bfa?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-80 group-hover:opacity-100" alt="Entraña">
+                </div>
+                <h3 class="text-2xl font-serif mb-2 gold-text">Entraña Fina</h3>
+                <p class="text-stone-500 text-sm mb-6 leading-relaxed italic">El corte más buscado. Jugosa, rápida y con una costra de grasa que es un manjar.</p>
+                <div class="flex justify-between items-center border-t border-white/5 pt-6">
+                    <span class="font-serif text-xl">$ 15.200 <small class="text-[10px] text-stone-600">/KG</small></span>
+                    <a href="https://wa.me/TU_NUMERO?text=Hola!%20Quiero%20Entraña" class="text-[10px] font-bold uppercase tracking-widest gold-text border-b border-amber-600 pb-1">Pedir Ahora</a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials">
-        <h2>What Our Customers Say</h2>
-        <p>"Best butcher shop in town!"</p>
-        <p>"Freshest meat I’ve ever had!"</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Have questions? Reach us via WhatsApp!</p>
-        <a href="https://wa.me/15555555555" class="whatsapp-button">Message Us on WhatsApp</a>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Professional Butcher Shop. All rights reserved.</p>
+    <footer class="py-20 bg-black border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-serif italic mb-8 gold-text">El Corte de Oro</h2>
+            <div class="flex justify-center space-x-6 mb-12">
+                <a href="#" class="text-stone-600 hover:text-white transition">Instagram</a>
+                <a href="#" class="text-stone-600 hover:text-white transition">Facebook</a>
+            </div>
+            <p class="text-[10px] text-stone-800 uppercase tracking-[0.4em]">&copy; 2026 Carnicería Boutique. Buenos Aires, Argentina.</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <a href="https://wa.me/TU_NUMERO" class="fixed bottom-10 right-10 z-[100] bg-green-600 text-white p-5 rounded-full shadow-[0_0_30px_rgba(22,163,74,0.4)] hover:scale-110 transition-transform flex items-center justify-center">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.015 0-4.001-.512-5.756-1.486l-6.128 1.61zm6.426-4.503l.363.215c1.554.921 3.35 1.408 5.186 1.408 5.432 0 9.854-4.422 9.854-9.855 0-2.632-1.024-5.105-2.885-6.965s-4.333-2.885-6.966-2.885c-5.433 0-9.855 4.422-9.855 9.855 0 1.954.582 3.856 1.681 5.467l.236.345-1.008 3.682 3.774-.99z"/></svg>
+    </a>
+
 </body>
 </html>
