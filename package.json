@@ -1,0 +1,20 @@
+{
+  "name": "carniceriaweb",
+  "version": "1.0.0",
+  "description": "A web application designed for local butcher shops",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 3000",
+    "build": "npm run build:js",
+    "build:js": "echo 'Static HTML site - no build needed'",
+    "lint": "echo 'No linter configured'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": ["butcher", "shop", "carniceria"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.14"
+  },
+  "devDependencies": {}
+}
