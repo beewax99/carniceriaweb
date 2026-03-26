@@ -1,13 +1,14 @@
 import os
 from flask import Flask, render_template
 
+# Importante: template_folder debe apuntar a donde esté tu index.html
 app = Flask(__name__, template_folder='../templates')
 
 @app.route('/')
 def home():
-    # Obtiene el número de la variable WHATSAPP_NUMBER de Vercel
-    # Si no la encuentra, usa el número que pongas acá por defecto
-    whatsapp = os.environ.get('WHATSAPP_NUMBER', '5491100000000') 
+    # Buscamos la variable de Vercel. Si no existe, usamos uno de respaldo.
+    # ASEGÚRATE que en Vercel la variable se llame: WHATSAPP_NUMBER
+    whatsapp = os.environ.get('WHATSAPP_NUMBER', '5491100000000')
     
-    # IMPORTANTE: Enviamos 'whatsapp' al HTML bajo el nombre 'phone_number'
+    # Pasamos el valor al HTML
     return render_template('index.html', phone_number=whatsapp)
