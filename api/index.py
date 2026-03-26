@@ -1,16 +1,12 @@
-from flask import Flask, render_template, request, jsonify
 import os
+from flask import Flask, render_template
 
-app = Flask(__name__, template_folder='../templates')
+# ... otra configuración de tu app ...
 
 @app.route('/')
 def home():
-    return render_template('index.html')
-
-@app.route('/bot', methods=['POST'])
-def whatsapp_bot():
-    # Lógica básica del bot
-    return jsonify({"status": "ok", "message": "Bot de Carnicería activo"}), 200
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    # Buscamos la variable que configuraste en Vercel
+    whatsapp_number = os.environ.get('WHATSAPP_NUMBER', '5491100000000')
+    
+    # Pasamos la variable al template HTML como 'phone_number'
+    return render_template('index.html', phone_number=whatsapp_number)
