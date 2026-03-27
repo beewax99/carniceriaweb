@@ -1,12 +1,11 @@
 import os
-import json
 try:
     import requests
     REQUESTS_AVAILABLE = True
 except ImportError:
     REQUESTS_AVAILABLE = False
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 
 app = Flask(__name__, template_folder='../templates')
 
@@ -80,7 +79,7 @@ def verify_webhook():
     token     = request.args.get("hub.verify_token")
     challenge = request.args.get("hub.challenge")
     if mode == "subscribe" and token == VERIFY_TOKEN:
-        return challenge, 200
+        return Response(challenge, status=200, mimetype="text/plain")
     return "Forbidden", 403
 
 @app.route("/webhook", methods=["POST"])
@@ -98,4 +97,3 @@ def receive_message():
     except Exception:
         pass
     return jsonify({"status": "ok"}), 200
-
