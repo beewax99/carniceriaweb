@@ -74,6 +74,7 @@ def home():
     return render_template("index.html", phone_number=whatsapp)
 
 @app.route("/webhook", methods=["GET"])
+@app.route("/api/index", methods=["GET"])
 def verify_webhook():
     mode      = request.args.get("hub.mode")
     token     = request.args.get("hub.verify_token")
@@ -83,6 +84,7 @@ def verify_webhook():
     return "Forbidden", 403
 
 @app.route("/webhook", methods=["POST"])
+@app.route("/api/index", methods=["POST"])
 def receive_message():
     try:
         data    = request.get_json(force=True)
