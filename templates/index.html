@@ -8,8 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body, html { margin: 0; padding: 0; background-color: #000; color: #fff; font-family: 'Inter', sans-serif; }
-
-        /* HERO */
         .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 16px; box-sizing: border-box; }
         .hero-bg {
             position: absolute; inset: 0;
@@ -18,59 +16,30 @@
             background-size: cover; background-position: center; z-index: 1;
         }
         .content { position: relative; z-index: 10; width: 100%; max-width: 1000px; }
-
-        /* Título responsive */
         .titulo-principal {
             font-size: clamp(3rem, 15vw, 140px);
-            font-weight: 900;
-            letter-spacing: -0.03em;
-            text-transform: uppercase;
-            font-style: italic;
-            color: #e3000b;
+            font-weight: 900; letter-spacing: -0.03em; text-transform: uppercase;
+            font-style: italic; color: #e3000b;
             border-bottom: clamp(6px, 1.5vw, 16px) solid white;
-            display: inline-block;
-            line-height: 1;
-            margin-bottom: 12px;
+            display: inline-block; line-height: 1; margin-bottom: 12px;
         }
-        .subtitulo {
-            font-size: clamp(1.4rem, 5vw, 3rem);
-            font-weight: 900;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: #4ade80;
-        }
-        .descripcion {
-            font-size: clamp(1rem, 3.5vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.3;
-        }
-        .productos-line {
-            font-size: clamp(0.7rem, 2.5vw, 1.25rem);
-            font-weight: 900;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        /* Botón WhatsApp */
+        .subtitulo { font-size: clamp(1.4rem, 5vw, 3rem); font-weight: 900; letter-spacing: 0.3em; text-transform: uppercase; color: #4ade80; }
+        .descripcion { font-size: clamp(1rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.3; }
+        .productos-line { font-size: clamp(0.7rem, 2.5vw, 1.25rem); font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; }
         .btn-whatsapp {
             background-color: #25D366;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 10px 40px rgba(37,211,102,0.4);
             display: inline-flex; align-items: center; gap: 12px;
             padding: clamp(14px, 3vw, 28px) clamp(24px, 6vw, 64px);
-            border-radius: 16px;
-            color: black; font-weight: 900; text-transform: uppercase;
-            font-size: clamp(0.9rem, 3vw, 1.5rem);
-            text-decoration: none;
+            border-radius: 16px; color: black; font-weight: 900; text-transform: uppercase;
+            font-size: clamp(0.9rem, 3vw, 1.5rem); text-decoration: none;
         }
         .btn-whatsapp:hover { transform: scale(1.05); }
         .btn-whatsapp svg { width: clamp(20px, 4vw, 40px); height: clamp(20px, 4vw, 40px); flex-shrink: 0; }
-
-        /* Ofertas */
         .oferta-card {
             background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .oferta-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(37,211,102,0.2); }
@@ -80,6 +49,9 @@
         }
         .map-container { border-radius: 16px; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); }
         .section-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent); margin: 0; }
+        .horario-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .horario-row:last-child { border-bottom: none; }
+        .horario-hoy { color: #4ade80; font-weight: 900; }
     </style>
 </head>
 <body class="antialiased">
@@ -102,8 +74,7 @@
                     </p>
                 </div>
             </div>
-            <a href="https://wa.me/{{ phone_number }}?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Carnicer%C3%ADa%20Arias."
-               class="btn-whatsapp">
+            <a href="https://wa.me/{{ phone_number }}?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Carnicer%C3%ADa%20Arias." class="btn-whatsapp">
                 <svg fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.015 0-4.001-.512-5.756-1.486l-6.128 1.61zm6.426-4.503l.363.215c1.554.921 3.35 1.408 5.186 1.408 5.432 0 9.854-4.422 9.854-9.855 0-2.632-1.024-5.105-2.885-6.965s-4.333-2.885-6.966-2.885c-5.433 0-9.855 4.422-9.855 9.855 0 1.954.582 3.856 1.681 5.467l.236.345-1.008 3.682 3.774-.99z"/></svg>
                 PEDIR POR WHATSAPP
             </a>
@@ -149,8 +120,7 @@
                 </div>
             </div>
             <div class="text-center mt-8 md:mt-10">
-                <a href="https://wa.me/{{ phone_number }}?text=Hola!%20Vi%20las%20ofertas%20de%20la%20semana%20y%20quiero%20consultar."
-                   class="btn-whatsapp">
+                <a href="https://wa.me/{{ phone_number }}?text=Hola!%20Vi%20las%20ofertas%20de%20la%20semana%20y%20quiero%20consultar." class="btn-whatsapp">
                     <svg fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.015 0-4.001-.512-5.756-1.486l-6.128 1.61zm6.426-4.503l.363.215c1.554.921 3.35 1.408 5.186 1.408 5.432 0 9.854-4.422 9.854-9.855 0-2.632-1.024-5.105-2.885-6.965s-4.333-2.885-6.966-2.885c-5.433 0-9.855 4.422-9.855 9.855 0 1.954.582 3.856 1.681 5.467l.236.345-1.008 3.682 3.774-.99z"/></svg>
                     Consultar Ofertas
                 </a>
@@ -169,38 +139,68 @@
                 </h2>
                 <p class="text-stone-400 mt-3 text-base md:text-lg">Visitanos o pedí por WhatsApp y coordinamos</p>
             </div>
-            <div class="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-10 items-center">
-                <div class="space-y-5 w-full">
+
+            <div class="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-10 items-start">
+
+                <!-- Info + Horarios -->
+                <div class="space-y-6 w-full">
+
+                    <!-- Dirección -->
                     <div class="flex items-start gap-4">
-                        <div class="text-green-400 text-2xl md:text-3xl mt-1 flex-shrink-0">📍</div>
+                        <div class="text-green-400 text-2xl mt-1 flex-shrink-0">📍</div>
                         <div>
-                            <p class="font-black text-lg md:text-xl uppercase">Dirección</p>
-                            <p class="text-stone-300 text-base md:text-lg">La Plata, Buenos Aires</p>
+                            <p class="font-black text-lg uppercase">Dirección</p>
+                            <p class="text-stone-300 text-base">11 de Septiembre 928</p>
+                            <p class="text-stone-300 text-base">B1913 Magdalena, Buenos Aires</p>
+                            <a href="https://www.google.com/maps/place/11+de+Septiembre+928,+B1913+Magdalena,+Provincia+de+Buenos+Aires/@-35.0767,-57.517,17z"
+                               target="_blank"
+                               class="text-green-400 text-sm font-bold hover:underline mt-1 inline-block">
+                                Ver en Google Maps →
+                            </a>
                         </div>
                     </div>
+
+                    <!-- Horarios -->
                     <div class="flex items-start gap-4">
-                        <div class="text-green-400 text-2xl md:text-3xl mt-1 flex-shrink-0">🕐</div>
-                        <div>
-                            <p class="font-black text-lg md:text-xl uppercase">Horarios</p>
-                            <p class="text-stone-300 text-base md:text-lg">Lun – Vie: 8:00 a 13:00 / 17:00 a 20:00</p>
-                            <p class="text-stone-300 text-base md:text-lg">Sábados: 8:00 a 13:00</p>
-                            <p class="text-stone-500 text-sm mt-1">Domingos y feriados: cerrado</p>
+                        <div class="text-green-400 text-2xl mt-1 flex-shrink-0">🕐</div>
+                        <div class="w-full">
+                            <p class="font-black text-lg uppercase mb-3">Horarios</p>
+                            <div class="bg-white/5 rounded-xl px-4 py-2 text-sm w-full">
+                                <div class="horario-row horario-hoy">
+                                    <span>Lunes a Viernes</span>
+                                    <span>09:00–14:00 / 17:00–22:00</span>
+                                </div>
+                                <div class="horario-row">
+                                    <span class="text-stone-300">Sábado</span>
+                                    <span class="text-stone-300">09:00–14:00 / 17:00–22:00</span>
+                                </div>
+                                <div class="horario-row">
+                                    <span class="text-stone-300">Domingo</span>
+                                    <span class="text-stone-300">09:00–14:00</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Contacto -->
                     <div class="flex items-start gap-4">
-                        <div class="text-green-400 text-2xl md:text-3xl mt-1 flex-shrink-0">📞</div>
+                        <div class="text-green-400 text-2xl mt-1 flex-shrink-0">📞</div>
                         <div>
-                            <p class="font-black text-lg md:text-xl uppercase">Contacto</p>
-                            <a href="https://wa.me/{{ phone_number }}" class="text-green-400 text-base md:text-lg font-bold hover:underline">WhatsApp</a>
+                            <p class="font-black text-lg uppercase">Contacto</p>
+                            <a href="https://wa.me/{{ phone_number }}" class="text-green-400 text-base font-bold hover:underline">WhatsApp</a>
                         </div>
                     </div>
+
                 </div>
+
+                <!-- Mapa satélite -->
                 <div class="map-container w-full">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26287.49203437677!2d-57.96392!3d-34.92145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e62b1f0085a1%3A0xbe80572b5c97eaed!2sLa%20Plata%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1680000000000!5m2!1ses!2sar"
-                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.343!2d-57.5170401!3d-35.076702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a26457d7239233%3A0xacc78a48ab59b471!2s11%20de%20Septiembre%20928%2C%20B1913%20Magdalena%2C%20Provincia%20de%20Buenos%20Aires!5e1!3m2!1ses!2sar!4v1680000000000!5m2!1ses!2sar"
+                        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
+
             </div>
         </div>
     </section>
