@@ -1,4 +1,5 @@
 import os
+import logging
 try:
     import requests
     REQUESTS_AVAILABLE = True
@@ -6,6 +7,9 @@ except ImportError:
     REQUESTS_AVAILABLE = False
 
 from flask import Flask, render_template, request, jsonify, Response
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__, template_folder='../templates')
 
@@ -32,7 +36,11 @@ MENU = (
 )
 
 def send_message(to, text):
-    if not REQUESTS_AVAILABLE or not WHATSAPP_TOKEN:
+    if not REQUESTS_AVAILABLE:
+        logger.error("requests not available")
+        return
+    if not WHATSAPP_TOKEN:
+        logger.error("WHATSAPP_TOKEN is empty")
         return
     url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
     headers = {
@@ -46,9 +54,10 @@ def send_message(to, text):
         "text": {"body": text},
     }
     try:
-        requests.post(url, headers=headers, json=payload, timeout=10)
-    except Exception:
-        pass
+        resp = requests.post(url, headers=headers, json=payload, timeout=10)
+        logger.info(f"Meta API response: {resp.status_code} - {resp.text}")
+    except Exception as e:
+        logger.error(f"Error sending message: {e}")
 
 def get_response(msg):
     msg = msg.strip().lower()
@@ -87,13 +96,15 @@ def verify_webhook():
 def receive_message():
     try:
         data    = request.get_json(force=True)
+        logger.info(f"Incoming data: {data}")
         entry   = data["entry"][0]
         changes = entry["changes"][0]["value"]
         msg_obj = changes["messages"][0]
         sender  = msg_obj["from"]
         text    = msg_obj["text"]["body"]
+        logger.info(f"Message from {sender}: {text}")
         reply   = get_response(text)
         send_message(sender, reply)
-    except Exception:
-        pass
+    except Exception as e:
+        logger.error(f"Error processing message: {e}")
     return jsonify({"status": "ok"}), 200
